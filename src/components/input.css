@@ -1,0 +1,10 @@
+.container-input {
+  padding: 5px 0 5px 0;
+}
+
+.error {
+  font-size: 0.8em;
+  color: red;
+  padding: 0;
+  margin: 0;
+}
