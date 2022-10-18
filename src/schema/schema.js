@@ -14,5 +14,5 @@ export const RegisterSchema = yup.object().shape({
 })
 
 export const TriviaSchema = yup.object().shape({
-  alternativeNumber: yup.number()
+  alternativeNumber: yup.number().required('Debe escoger una opción para continuar con la trivia')
 })

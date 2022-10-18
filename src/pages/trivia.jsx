@@ -15,6 +15,7 @@ const Trivia = () => {
 
   const [question, setQuestion] = useState({});
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [alternativeNumber, setAlternativeNumber] = useState(1);
 
   useEffect(() => {
     if(phase !== 2) {
@@ -47,6 +48,10 @@ const Trivia = () => {
     }
   });
   
+  const onChangeValue = (event) => {
+    setAlternativeNumber(parseInt(event.target.value));
+  }
+
   const onSubmit = async (data) => {
 
     data = {...data, ...{
@@ -58,6 +63,7 @@ const Trivia = () => {
     const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
     setLoader(false);
     setQuestionNumber(questionNumber + 1);
+    setAlternativeNumber(1);
   } 
 
   return (
@@ -67,12 +73,15 @@ const Trivia = () => {
       <p>{question.text ? `${questionNumber}.- ${question.text}`: ""}</p>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div onChange={onChangeValue}>
           {question.Alternatives ? question.Alternatives.map((alternative, index) => (
             <div key={index + 1}> 
-              <input value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
+              <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
               <label>{alternative.text}</label>
             </div>
           )) : null}
+          <p>{errors?.alternativeNumber?.message}</p>
+          </div>
           <button type="submit">Siguiente</button>
         </form>
       </div>
