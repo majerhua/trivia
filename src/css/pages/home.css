@@ -1,0 +1,39 @@
+.container {
+    background-image: url('../../assets/imagenes/fondo.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.absolute-content {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    bottom: 35%
+}
+
+.logo-trivia {
+    height: 400px;
+    width: 400px;
+}
+
+h3 {
+    color: white;
+}
+
+button {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    width: 120px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+}
