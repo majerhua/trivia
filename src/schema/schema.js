@@ -10,7 +10,8 @@ export const RegisterSchema = yup.object().shape({
   phone: yup.string()
   .required('Completar este campo')
   .matches(/^[0-9]+$/, 'Solo se aceptan dígitos'),
-  is_suscriptor: yup.string().required('Completar este campo')
+  is_suscriptor: yup.string().required('Completar este campo'),
+  terms_conditions: yup.string().nullable().required('Completar este campo')
 })
 
 export const TriviaSchema = yup.object().shape({

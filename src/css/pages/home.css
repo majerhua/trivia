@@ -2,7 +2,7 @@
     background-image: url('../../assets/imagenes/fondo.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 100vh;
     background-position: center;
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    bottom: 35%
+    bottom: 28%;
 }
 
 .logo-trivia {

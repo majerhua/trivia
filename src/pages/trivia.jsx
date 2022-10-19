@@ -1,91 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { TriviaSchema } from '../schema/schema';
+import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { phaseStore, playerIdStore, loaderStore } from '../store';
-import axios from 'axios';
+import { phaseStore, loaderStore, playerIdStore } from '../store';
+import '../css/pages/trivia.css';
+import { useCountdown } from '../hooks/useCountdown';
+import Question from './question';
 
-const Trivia = () => {
+const Trivia = ({counter}) => {
 
   const navigate = useNavigate();
   const { phase } = phaseStore();
   const { playerId } = playerIdStore();
   const { setLoader } = loaderStore();
 
-  const [question, setQuestion] = useState({});
-  const [questionNumber, setQuestionNumber] = useState(1);
-  const [alternativeNumber, setAlternativeNumber] = useState(1);
+  let [minutes, seconds] = useCountdown(counter);
+
+  console.log("Seconds =>",seconds);
+
+  if(minutes === 2 && seconds === 0) {
+   // setLoader(true);
+    setTimeout(() => navigate("/juego-terminado",{state: {
+      playerId,
+      timeTakesRespond: `${minutes}:${seconds}`
+    }}), 2000);
+  }
 
   useEffect(() => {
     if(phase !== 2) {
       navigate("/");
     }
-  }, []);
+  }, [phase]);
 
-  const listQuestion = async() => {
-    const data = {
-      playerId,
-      questionNumber
-    }
-
-    setLoader(true);
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/list-question',data);
-    setLoader(false);
-    setQuestion(response.data.data);
-    console.log("Pregunta Generada => ",response)
-  }
-
-  useEffect( () => {
-    listQuestion();
-  }, [questionNumber]);
-
-  const { register, handleSubmit, formState:{ errors } } = useForm({
-    mode: 'onChange',
-    resolver: yupResolver(TriviaSchema),
-    defaultValues: {
-      alternativeNumber: 0
-    }
-  });
-  
-  const onChangeValue = (event) => {
-    setAlternativeNumber(parseInt(event.target.value));
-  }
-
-  const onSubmit = async (data) => {
-
-    data = {...data, ...{
-      playerId,
-      questionId: question.id,
-      questionNumber
-    }};
-    setLoader(true);
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
-    setLoader(false);
-    setQuestionNumber(questionNumber + 1);
-    setAlternativeNumber(1);
-  } 
-
-  return (
-    <>
-      <h1>Pona a prueba sus conocimientos del mundo del fútbol</h1>
-      <p>Para completar la trivia usted debe responder 50 preguntas</p>
-      <p>{question.text ? `${questionNumber}.- ${question.text}`: ""}</p>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div onChange={onChangeValue}>
-          {question.Alternatives ? question.Alternatives.map((alternative, index) => (
-            <div key={index + 1}> 
-              <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
-              <label>{alternative.text}</label>
-            </div>
-          )) : null}
-          <p>{errors?.alternativeNumber?.message}</p>
-          </div>
-          <button type="submit">Siguiente</button>
-        </form>
-      </div>
-    </>
+  return ( 
+    <Question seconds={seconds} minutes={minutes}/>
   );
 }
 

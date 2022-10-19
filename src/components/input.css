@@ -1,6 +1,42 @@
-.container-input {
+.container-field {
   padding: 5px 0 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
+
+.container-field > p {
+  width: 230px;
+}
+
+.container-field input[type="text"] {
+  margin-top: 10px;
+  height: 25px;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.container-field select {
+  margin-top: 10px;
+  height: 31px;
+  border-radius: 4px;
+  width: 308px;
+}
+
+.container-radio {
+  width: 308px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container-radio > div:nth-child(1){
+  margin-left: 30px;
+}
+
+  .container-radio > div:nth-child(2){
+    margin-left: 80px;
+  }
 
 .error {
   font-size: 0.8em;

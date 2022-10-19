@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './input.css';
 
 const Select = ({label, name, register, errors}) => {
 
@@ -10,24 +11,27 @@ const Select = ({label, name, register, errors}) => {
 
   const options = [
     {
-      label: "DNI",
+      label: "Documento nacional",
       value: 1,
     },
     {
-      label: "Pasaporte",
+      label: "Documento de extranjeria",
       value: 2,
     }
   ];  
 
   return (
-    <div>
-      <label>{label}</label>
-      <select {...register(name)} errors={errors}>
-        <option value="">--Seleccionar--</option>
-        {options.map((option, index) => (
-          <option key={index + 1}  value={option.value}>{option.label}</option>
-        ))}
-      </select>
+    <div className="container-field">
+      <p>{label}</p>
+      <div>
+        <select {...register(name)} errors={errors}>
+          <option value="">--Seleccionar--</option>
+          {options.map((option, index) => (
+            <option key={index + 1}  value={option.value}>{option.label}</option>
+          ))}
+        </select>
+        <p className="error">{errors[name]?.message}</p>
+      </div>
     </div>
   );
 }

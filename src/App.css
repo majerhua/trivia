@@ -1,0 +1,17 @@
+@font-face {
+  font-family: graphikArabicSemibold;
+  src: url('./assets/font/Graphik Arabic SemiBold/Graphik_Arabic_SemiBold.ttf');
+}
+
+body {
+  font-family: graphikArabicSemibold;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}

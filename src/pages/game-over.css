@@ -1,0 +1,18 @@
+.container-game-over{
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-game-over p {
+  color: #fff;
+}
+
+.container-game-over img{
+  width:160px;
+}

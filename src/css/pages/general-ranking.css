@@ -1,0 +1,26 @@
+.container-general-ranking {
+  background-image: url('../../assets/imagenes/fondo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  color: #fff;
+  padding: 20px 20px;
+}
+
+.container-general-ranking > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-general-ranking > div:nth-child(1) img {
+  width: 380px;
+}
+
+.container-general-ranking > p:nth-child(1){
+  font-size: 1.5em;
+  text-align: center;
+}

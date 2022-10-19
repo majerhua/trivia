@@ -1,0 +1,57 @@
+.container-register {
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .container-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    .container-logo p {
+      color: red;
+      margin: 0;
+    }
+
+  .container-register-form {
+    background-color: #fff;
+    width: 545px;
+    height: auto;
+    padding: 15px 25px;
+  }
+
+    .container-register-form > p {
+      text-align: center;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      font-size: 1.3em;
+    }
+
+.container-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.logo-trivia-register {
+  width: 200px;
+  padding-bottom: 5px;
+}
+
+.form-register {
+  padding-top: 10px;
+}
+
+.container-terms-conditions {
+  width: 100%;
+}
+
+.container-terms-conditions > div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

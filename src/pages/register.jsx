@@ -3,10 +3,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterSchema } from '../schema/schema';
 import Input from '../components/input';
 import Select from '../components/select';
+import Radio from '../components/radio';
+import Button from '../components/button';
 import { phaseStore, playerIdStore, loaderStore } from '../store';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import '../css/pages/register.css';
+import logoTriviaRed from '../assets/imagenes/trivia-qatar-rojo.svg';
 
 const Register = () => {
 
@@ -14,8 +18,6 @@ const Register = () => {
   const { phase, setPhase } = phaseStore();
   const { setPlayerId } = playerIdStore();
   const { setLoader } = loaderStore();
-
-  const [isSuscriptor, setIsSuscriptor] = useState('0');
 
   useEffect(() => {
     if(phase !== 1) {
@@ -32,7 +34,8 @@ const Register = () => {
       identity_document: "",
       type_document: "",
       phone: "",
-      is_suscriptor: ""
+      is_suscriptor: "",
+      terms_conditions: ""
     }
   });
 
@@ -45,28 +48,37 @@ const Register = () => {
     navigate("/trivia");
   }
 
-  const onChangeValue = (event) => {
-    setIsSuscriptor(event.target.value);
-  }
-
   return (
     <>
-      <h1>Para comenzar complete la siguiente información</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input label="Su nombre:" name="name" register={register} errors={errors}/>
-        <Input label="Correo electrónico:" name="email" register={register} errors={errors}/>
-        <Input label="Documento de identidad:" name="identity_document" register={register} errors={errors}/>
-        <Input label="Número de telefono:" name="phone" register={register} errors={errors}/>
-        <Select label="Tipo de documento:" name="type_document" register={register} errors={errors}/>
-        <div onChange={onChangeValue}>
-          <label>¿Es suscriptor de la Nación?:</label>
-          <input type="radio" id="yes" value="1" checked={isSuscriptor==='1'} {...register('is_suscriptor')}errors={errors}/>
-          <label htmlFor="yes">Si</label>
-          <input type="radio" id="no" value="0" checked={isSuscriptor==='0'} {...register('is_suscriptor')} errors={errors}/>
-          <label htmlFor="no">No</label>
+      <div className="container-register">
+        <div className="container-register-form">
+          <div className="container-logo">
+            <img src={logoTriviaRed} alt="logo_trivia" className="logo-trivia-register" />
+          </div>
+          <p>Para comenzar</p>
+          <p>complete la siguiente información</p>
+          <form className="form-register" onSubmit={handleSubmit(onSubmit)}>
+            <Input label="Su nombre:" name="name" register={register} errors={errors}/>
+            <Input label="Correo electrónico:" name="email" register={register} errors={errors}/>
+            <Input label="Documento de identidad:" name="identity_document" register={register} errors={errors}/>
+            <Input label="Número de telefono:" name="phone" register={register} errors={errors}/>
+            <Select label="Tipo de documento:" name="type_document" register={register} errors={errors}/>
+            <Radio label="¿Es suscriptor de la Nación?:" name="is_suscriptor" register={register} errors={errors}/>
+            <div className="container-field">
+              <div className="container-terms-conditions">
+                <div>
+                  <input type="radio" id="terms-conditions" value="1" {...register('terms_conditions')}errors={errors}/>
+                  <label htmlFor="terms-conditions">Acepto términos y condiciones</label>
+                </div>
+                <p className="error">{errors['terms_conditions']?.message}</p>
+              </div>
+            </div>
+            <div className="container-button">
+              <Button text="Comenzar"/>
+            </div>
+          </form>
         </div>
-        <button type="submit">Comenzar</button>
-      </form>
+      </div>
     </>
   );
 }

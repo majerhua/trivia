@@ -1,0 +1,57 @@
+.container-trivia {
+  background-image: url('../../assets/imagenes/fondo.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  color: #fff;
+  padding: 20px 20px;
+}
+
+.container-trivia > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-trivia > div:nth-child(1) img {
+  width: 380px;
+}
+
+.container-trivia > p:nth-child(1){
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.container-trivia > div:nth-child(2) {
+  width: 100%;
+  padding-top: 30px;
+}
+
+  .container-trivia > div:nth-child(2) > p:nth-child(1) {
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+  .container-trivia > div:nth-child(2) > p:nth-child(2) {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .container-trivia > div:nth-child(2) > p:nth-child(3) {
+    font-size: 1em;
+    text-align: center;
+  }
+
+.container-trivia > div:nth-child(3) {
+  width: 100%;
+  padding-top: 30px;
+  padding-left: 15%;
+}
+
+.timer {
+  font-size: 1.2em;
+  color: rgba(255, 99, 71, 1);
+}
