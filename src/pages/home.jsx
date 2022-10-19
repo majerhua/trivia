@@ -18,8 +18,8 @@ const Home = () => {
       <div className="container">
         <img src={logoTrivia} alt="logo_trivia" className="logo-trivia" />
         <div className="absolute-content">
-          <h3>Pon a prueba sus conocimientos del mundo del fútbol</h3>
-          <Button text="jugar" handleClick={handleClick} />
+          <h3>Ponga a prueba sus conocimientos <br/> del mundo del fútbol</h3>
+          <Button text="JUGAR" handleClick={handleClick} />
         </div>
           
       </div>

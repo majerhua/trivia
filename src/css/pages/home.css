@@ -11,29 +11,25 @@
 }
 
 .absolute-content {
-    position: absolute;
-    align-items: center;
+    /* position: absolute;
+    align-items: center; */
+    margin-top: 160px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    bottom: 28%;
+     /* bottom: 28%; */
+    
 }
 
 .logo-trivia {
+    position: absolute;
+    align-items: center;
+    top: 7%;
     height: 400px;
     width: 400px;
 }
 
 h3 {
+    text-align: center;
     color: white;
-}
-
-button {
-    color: white;
-    background-color: red;
-    padding: 10px;
-    width: 120px;
-    font-size: 15px;
-    border-radius: 10px;
-    border: none;
 }
