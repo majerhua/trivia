@@ -106,7 +106,7 @@ const Question = ({seconds, minutes}) => {
             </form>
           </div>
         </div>
-        <div>
+        <div className="container-progress-bar">
           <Progressbar bgcolor="#760B24" progress='30'  height={30} />
         </div>
       </div>

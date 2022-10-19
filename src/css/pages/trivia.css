@@ -55,3 +55,11 @@
   font-size: 1.2em;
   color: rgba(255, 99, 71, 1);
 }
+
+.container-progress-bar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 10%;
+}
