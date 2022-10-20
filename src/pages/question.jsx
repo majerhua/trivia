@@ -73,38 +73,41 @@ const Question = ({seconds, minutes}) => {
 
   return (
       <div className="container-trivia">
-
-        <div>
-          <img src={logoTrivia} alt="logo_trivia" />
-        </div>
-        <div>
-          <p>Pona a prueba sus conocimientos del mundo del futbol</p>
-          <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer">15:00</span> minutos</p>
-          <p>Tiempo transcurrido: <span className="timer">{`${minutes}:${seconds}`}</span></p>
-        </div>
-        <div>
-          <p>{question.text ? `${questionNumber}.- ${question.text}`: ""}</p>
-          <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div onChange={onChangeValue}>
-              {question.Alternatives ? question.Alternatives.map((alternative, index) => (
-                <div key={index + 1}> 
-                  <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
-                  <label>{alternative.text}</label>
-                </div>
-              )) : null}
-              <p>{errors?.alternativeNumber?.message}</p>
+          <div className="content-section">
+            <img src={logoTrivia} alt="logo_trivia" />
+          </div>
+          <div className="content-section">
+            <p>Pona a prueba sus conocimientos del mundo del futbol</p>
+            <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer">15:00</span> minutos</p>
+            <p>Tiempo transcurrido: <span className="timer">{`${minutes}:${seconds}`}</span></p>
+          </div>
+          <div className="content-section">
+            {question.text ? 
+              <div className="question">
+                <div className="number">{questionNumber}</div>
+                <p>{question.text}</p>
               </div>
-              <button className="button btn-trivia" type="submit">Siguiente</button>
-            </form>
-            <div className="container-marcador">
-              <span>{`${questionNumber} / 25`}</span>
-            </div>
-            <div className="container-progress-bar">
-              <Progressbar bgcolor="#760B24" progress='30'  height={30} />
+              : ""}
+            <div className='form-section'>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div onChange={onChangeValue} className="alternatives-content">
+                {question.Alternatives ? question.Alternatives.map((alternative, index) => (
+                  <div key={index + 1} className="alternative"> 
+                    <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
+                    <label>{alternative.text}</label>
+                  </div>
+                )) : null}
+                </div>
+                <button className="button btn-trivia" type="submit">Siguiente</button>
+              </form>
+              <div className="container-marcador">
+                <span>{`${questionNumber} / 25`}</span>
+              </div>
+              <div className="container-progress-bar">
+                <Progressbar bgcolor="#760B24" progress='30'  height={30} />
+              </div>
             </div>
           </div>
-        </div>
       </div>
   );
 }
