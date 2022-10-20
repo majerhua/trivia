@@ -36,3 +36,7 @@
 .container-buttons-game-over{
   margin-top: 15px;
 }
+
+.btn-game-over:nth-child(2) {
+  margin-left: 20px;
+}
