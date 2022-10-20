@@ -1,4 +1,4 @@
-import './button.css';
+import '../css/components/button.css';
 
 const Button = ({text, handleClick}) => {
 

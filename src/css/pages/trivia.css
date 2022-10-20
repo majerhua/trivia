@@ -6,7 +6,7 @@
   width: 100%;
   background-position: center;
   color: #fff;
-  padding: 20px 20px;
+  overflow: hidden;
 }
 
 .container-trivia > div:nth-child(1) {
@@ -48,7 +48,7 @@
 .container-trivia > div:nth-child(3) {
   width: 100%;
   padding-top: 30px;
-  padding-left: 15%;
+  margin-left: 15%; 
 }
 
 .timer {
@@ -57,9 +57,15 @@
 }
 
 .container-progress-bar {
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-left: 10%;
 }
+
+.container-marcador{
+  width: 75%;
+  display: flex;
+  justify-content: center;
+}
+

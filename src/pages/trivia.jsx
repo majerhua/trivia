@@ -5,23 +5,23 @@ import '../css/pages/trivia.css';
 import { useCountdown } from '../hooks/useCountdown';
 import Question from './question';
 
-const Trivia = ({counter}) => {
+const Trivia = () => {
 
   const navigate = useNavigate();
-  const { phase } = phaseStore();
+  const { phase, setPhase } = phaseStore();
   const { playerId } = playerIdStore();
-  const { setLoader } = loaderStore();
 
-  let [minutes, seconds] = useCountdown(counter);
+  let [minutes, seconds] = useCountdown();
 
-  console.log("Seconds =>",seconds);
-
-  if(minutes === 2 && seconds === 0) {
-   // setLoader(true);
-    setTimeout(() => navigate("/juego-terminado",{state: {
-      playerId,
-      timeTakesRespond: `${minutes}:${seconds}`
-    }}), 2000);
+  if(minutes === 15 && seconds === 0) {
+    setTimeout(() => navigate("/juego-terminado",
+      {
+        state: {
+          playerId,
+          timeTakesRespond: `${minutes}:${seconds}`,
+          phase: 3
+        }
+      }), 2000);
   }
 
   useEffect(() => {

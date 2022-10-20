@@ -7,13 +7,9 @@ import logoTrivia from '../assets/imagenes/logo-trivia.svg';
 import axios from 'axios';
 
 const GeneralRanking = () => {
-  /*const { setPhase } = phaseStore();
-  const navigate = useNavigate();
 
-  const handleClick = ()=> {
-    navigate("/registro");
-    setPhase(1);
-  }*/
+  const navigate = useNavigate();
+  const { setPhase } = phaseStore();
 
   const [generalRanking, setGeneralRanking] = useState([]);
 
@@ -26,28 +22,32 @@ const GeneralRanking = () => {
     listGeneralRanking();
   }, [setGeneralRanking]);
 
-  
+  const handleClick = ()=> {
+    navigate("/registro");
+    setPhase(1);
+  }
+
   return (
       <div className="container-general-ranking">
         <div>
           <img src={logoTrivia} alt="logo_trivia" />
         </div>
-        <p>Clasificación General</p>
-        <div>
+        <p className="general-ranking-title">Clasificación General</p>
+        <div className="container-table-ranking">
           <table>
             <thead>
               <tr>
-                <th>*</th>
-                <th>Participante</th>
-                <th>Respuestas correctas</th>
-                <th>Tiempo</th>
-                <th>Promedio</th>
+                <th ><div className="triangle"></div></th>
+                <th>PARTICIPANTE</th>
+                <th>RESPUESTAS CORRECTAS</th>
+                <th>TIEMPO</th>
+                <th>PROMEDIO</th>
               </tr>
             </thead>
             <tbody>
               {generalRanking.map((player, index) => (
                 <tr key={index}>
-                  <td>{player.id}</td>
+                  <td><div className="container-id">{player.id}</div></td>
                   <td>{player.name}</td>
                   <td>{player.numberCorrectAnswers}</td>
                   <td>{player.timeTakesRespond}</td>
@@ -56,6 +56,12 @@ const GeneralRanking = () => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="container-btn-ranking">
+          <button className="button btn-general-ranking" onClick={handleClick} >JUGAR DE NUEVO</button>
+        </div>
+        <div>
+
         </div>
       </div>
   );

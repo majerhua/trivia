@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './input.css';
+import '../css/components/input.css';
 
 const Select = ({label, name, register, errors}) => {
 

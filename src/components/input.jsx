@@ -1,4 +1,4 @@
-import './input.css';
+import '../css/components/input.css';
 
 const Input = ({label, name, register, errors}) => {
   return (

@@ -2,11 +2,10 @@
   background-image: url('../../assets/imagenes/fondo.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  width: 100%;
   background-position: center;
   color: #fff;
-  padding: 20px 20px;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .container-general-ranking > div:nth-child(1) {
@@ -14,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .container-general-ranking > div:nth-child(1) img {
@@ -23,4 +23,58 @@
 .container-general-ranking > p:nth-child(1){
   font-size: 1.5em;
   text-align: center;
+}
+
+.general-ranking-title {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.container-table-ranking {
+  margin: 10px 15%;
+  height: 48vh;
+  overflow-y: scroll;
+}
+
+.container-table-ranking table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.container-table-ranking table th, td {
+  border-top: 1px solid white;
+  text-align: center;
+  padding: 9px;
+  margin:0;
+}
+
+.triangle{
+  width: 0;
+  height: 0;
+  text-align: center;
+  background: transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid #fff;
+  margin-left: 15px;
+}
+
+.container-id{
+  background-color: rgba(100, 10, 10, 1);
+  padding: 2px 10px;
+  border-radius: 8px;
+}
+
+.btn-general-ranking {
+  width: 200px;
+  font-size: 1.2em;
+  padding: 15px 10px;
+}
+
+.container-btn-ranking {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

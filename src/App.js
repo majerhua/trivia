@@ -7,7 +7,7 @@ import GeneralRanking from './pages/general-ranking';
 import { loaderStore } from './store';
 import Loader from './components/loader';
 
-const COUNTER = 2 * 60 ;
+const COUNTER = 15 * 60 ;
 
 function App() {
 

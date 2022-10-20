@@ -16,3 +16,23 @@
 .container-game-over img{
   width:160px;
 }
+
+.btn-game-over {
+  width: 200px;
+  font-size: 1.1em;
+  padding: 12px 10px;
+}
+
+.title-game-over{
+  font-size: 1.6em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.text-game-over {
+  margin-top: 23px;
+}
+
+.container-buttons-game-over{
+  margin-top: 15px;
+}

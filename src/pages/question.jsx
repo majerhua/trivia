@@ -12,7 +12,7 @@ import Progressbar from '../components/progress-bar';
 const Question = ({seconds, minutes}) => {
 
   const navigate = useNavigate();
-  const { phase } = phaseStore();
+  const { setPhase } = phaseStore();
   const { playerId } = playerIdStore();
   const { setLoader } = loaderStore();
 
@@ -20,19 +20,12 @@ const Question = ({seconds, minutes}) => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [alternativeNumber, setAlternativeNumber] = useState(1);
 
-  useEffect(() => {
-    if(phase !== 2) {
-      navigate("/");
-    }
-  }, []);
-
   const listQuestion = async() => {
     const data = {
       playerId,
       questionNumber
     }
 
-    setLoader(true);
     const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/list-question',data);
 
     if(response.data.code === 1) {
@@ -40,7 +33,8 @@ const Question = ({seconds, minutes}) => {
     }else if(response.data.code === 2){
       navigate("/juego-terminado", {state: {
         playerId,
-        timeTakesRespond: `${minutes}:${seconds}`
+        timeTakesRespond: `${minutes}:${seconds}`,
+        phase: 3
       }});
     }
 
@@ -71,9 +65,8 @@ const Question = ({seconds, minutes}) => {
       questionNumber
     }};
     setLoader(true);
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
+    await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
 
-    setLoader(false);
     setQuestionNumber(questionNumber + 1);
     setAlternativeNumber(1);
   } 
@@ -86,7 +79,7 @@ const Question = ({seconds, minutes}) => {
         </div>
         <div>
           <p>Pona a prueba sus conocimientos del mundo del futbol</p>
-          <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer">2:00</span> minutos</p>
+          <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer">15:00</span> minutos</p>
           <p>Tiempo transcurrido: <span className="timer">{`${minutes}:${seconds}`}</span></p>
         </div>
         <div>
@@ -102,12 +95,15 @@ const Question = ({seconds, minutes}) => {
               )) : null}
               <p>{errors?.alternativeNumber?.message}</p>
               </div>
-              <button type="submit">Siguiente</button>
+              <button className="button btn-trivia" type="submit">Siguiente</button>
             </form>
+            <div className="container-marcador">
+              <span>{`${questionNumber} / 25`}</span>
+            </div>
+            <div className="container-progress-bar">
+              <Progressbar bgcolor="#760B24" progress='30'  height={30} />
+            </div>
           </div>
-        </div>
-        <div className="container-progress-bar">
-          <Progressbar bgcolor="#760B24" progress='30'  height={30} />
         </div>
       </div>
   );

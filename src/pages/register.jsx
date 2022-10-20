@@ -41,11 +41,15 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     setLoader(true);
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-player',data);
-    setLoader(false);
-    setPlayerId(response.data.data.id);
-    setPhase(2);
-    navigate("/trivia");
+    try{
+      const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-player',data);
+      setPlayerId(response.data.data.id);
+      setPhase(2);
+      navigate("/trivia");
+    }catch(ex){
+      alert(ex.message);
+      setLoader(false);
+    }
   }
 
   return (
@@ -59,10 +63,10 @@ const Register = () => {
           <p>complete la siguiente información</p>
           <form className="form-register" onSubmit={handleSubmit(onSubmit)}>
             <Input label="Su nombre:" name="name" register={register} errors={errors}/>
-            <Input label="Correo electrónico:" name="email" register={register} errors={errors}/>
+            <Select label="Tipo de documento:" name="type_document" register={register} errors={errors}/>
             <Input label="Documento de identidad:" name="identity_document" register={register} errors={errors}/>
             <Input label="Número de telefono:" name="phone" register={register} errors={errors}/>
-            <Select label="Tipo de documento:" name="type_document" register={register} errors={errors}/>
+            <Input label="Correo electrónico:" name="email" register={register} errors={errors}/>
             <Radio label="¿Es suscriptor de la Nación?:" name="is_suscriptor" register={register} errors={errors}/>
             <div className="container-field">
               <div className="container-terms-conditions">
