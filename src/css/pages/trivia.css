@@ -9,6 +9,31 @@
   overflow: hidden;
 }
 
+.question {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.question > .number {
+  padding: 10px 20px;
+  border-radius: 100%;
+  font-size: 25px;
+  background-color: #660a1a;
+  margin-right: 15px;
+}
+
+.alternatives-content {
+  margin-left: 4%;
+}
+.alternatives-content > .alternative {
+  margin: 16px;
+}
+
+.form-section button {
+  margin-left: 5%;
+}
+
 .container-trivia > div:nth-child(1) {
   width: 100%;
   display: flex;
@@ -18,6 +43,7 @@
 
 .container-trivia > div:nth-child(1) img {
   width: 380px;
+  margin-top: 20px;
 }
 
 .container-trivia > p:nth-child(1){
@@ -48,7 +74,7 @@
 .container-trivia > div:nth-child(3) {
   width: 100%;
   padding-top: 30px;
-  margin-left: 15%; 
+  margin-left: 10.5%; 
 }
 
 .timer {
@@ -61,6 +87,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-left: 4.5%;
 }
 
 .container-marcador{

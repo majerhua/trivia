@@ -9,6 +9,7 @@
   border: none;
   font-weight: 600;
   cursor: pointer;
+  z-index: 1
 }
 
 .button:hover {
