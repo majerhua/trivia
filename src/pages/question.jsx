@@ -104,7 +104,7 @@ const Question = ({seconds, minutes}) => {
                 <span>{`${questionNumber} / 25`}</span>
               </div>
               <div className="container-progress-bar">
-                <Progressbar bgcolor="#760B24" progress='30'  height={30} />
+                <Progressbar bgcolor="#760B24" progress={4 * questionNumber}  height={30} />
               </div>
             </div>
           </div>

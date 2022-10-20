@@ -40,3 +40,20 @@
 .btn-game-over:nth-child(2) {
   margin-left: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .text-game-over {
+    width: calc(100% - 30px);
+    text-align: center;
+  }
+  
+  .container-buttons-game-over {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-game-over:nth-child(2){
+    margin-left: 0;
+  }
+
+}

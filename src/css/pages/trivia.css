@@ -96,3 +96,16 @@
   justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .container-trivia > div:nth-child(3){
+    margin-left: 0px;
+    width: calc(100% - 30px);
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .form-section {
+    width: calc(100% - 40px);;
+    padding-left: 40px;
+  }
+}

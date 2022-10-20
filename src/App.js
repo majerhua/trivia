@@ -4,6 +4,7 @@ import Register from './pages/register';
 import Trivia from './pages/trivia';
 import GameOver from './pages/game-over';
 import GeneralRanking from './pages/general-ranking';
+import GeneralRankingExport from './pages/general-ranking-export';
 import { loaderStore } from './store';
 import Loader from './components/loader';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/trivia" element={<Trivia counter={COUNTER}/>} />
           <Route path="/juego-terminado" element={<GameOver/>} />
           <Route path="/ranking-general" element={<GeneralRanking/>} />
+          <Route path="/ranking-general-export" element={<GeneralRankingExport/>} />
         </Routes>
       </Router>
     </>

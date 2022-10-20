@@ -28,7 +28,7 @@ const GameOver = () => {
   const registerTimer = async(playerId, timeTakesRespond) => {
     const data = {
       playerId,
-      timeTakesRespond
+      timeTakesRespond: `00:${timeTakesRespond}`
     }
     await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/record-question-time',data);
     getTimeAndCorrectQuestions(playerId);
@@ -62,7 +62,7 @@ const GameOver = () => {
       <div className="container-game-over">
         <p className="title-game-over">¡Ha finalizado el juego!</p>
         <img src={gameOver}   alt="logo_trivia" />
-        <p class="text-game-over">Usted acertó {ranking?.numberCorrectAnswers} respuestas en {ranking?.timeTakesRespond} minutos.</p>
+        <p className="text-game-over">Usted acertó {ranking?.numberCorrectAnswers} respuestas en {ranking?.timeTakesRespond} minutos.</p>
         <div className="container-buttons-game-over">
           <button className="button btn-game-over" onClick={handleClickNewGame}>JUGAR DE NUEVO</button>
           <button className="button btn-game-over" onClick={handleClickPosition}>VER POSICIONES</button>

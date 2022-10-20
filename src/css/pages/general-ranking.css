@@ -78,3 +78,43 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.container-table-ranking-export {
+  margin: 10px 5%;
+  height: 60vh;
+}
+
+.container-table-ranking-export > table, td {
+  font-size: 0.95em;
+}
+
+.container-btn-export-excel {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
+}
+
+.container-btn-export-excel  button {
+  background-color: rgba(0,255,0,0.6);
+  color: #fff;
+  font-size: 1.1em;
+  border-radius: 6px;
+  border-color: rgba(0,255,0,0.6);
+  padding: 5px;
+}
+
+.container-btn-export-excel  button:hover {
+  cursor: pointer;
+  background-color: rgba(0,255,0,0.5);
+  border-radius: 6px;
+  border-color: rgba(0,255,0,0.5);
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container-table-ranking {
+    margin: 10px 20px;
+    height: 70vh;
+    overflow-x: scroll;
+  }     
+}
