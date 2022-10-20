@@ -13,7 +13,7 @@ const Trivia = () => {
 
   let [minutes, seconds] = useCountdown();
 
-  if(minutes === 0 && seconds === 5) {
+  if(minutes === 15 && seconds === 0) {
     setTimeout(() => navigate("/juego-terminado",
       {
         state: {

@@ -11,21 +11,12 @@
 }
 
 .absolute-content {
-    /* position: absolute;
-    align-items: center; */
-    margin-top: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
-     /* bottom: 28%; */
-    
 }
 
 .logo-trivia {
-    position: absolute;
-    align-items: center;
-    top: 7%;
-    height: 400px;
     width: 400px;
 }
 
@@ -36,11 +27,9 @@ h3 {
 
 @media only screen and (max-width: 600px) {
     .logo-trivia {
-        top: 30%;
         width: 320px;
-        height: 200px;
     }
     .absolute-content{
-        margin-top: 10px;
+        margin-top: 0;
     }   
 }

@@ -74,7 +74,7 @@ const Register = () => {
                   <input type="radio" id="terms-conditions" value="1" {...register('terms_conditions')}errors={errors}/>
                   <label htmlFor="terms-conditions">Acepto términos y condiciones</label>
                 </div>
-                <p className="error">{errors['terms_conditions']?.message}</p>
+                <p className="error text-center">{errors['terms_conditions']?.message}</p>
               </div>
             </div>
             <div className="container-button">

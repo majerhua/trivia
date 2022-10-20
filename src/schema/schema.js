@@ -5,7 +5,9 @@ export const RegisterSchema = yup.object().shape({
   email: yup.string()
   .required('Completar este campo')
   .matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'El valor ingresado no es un correo'),
-  identity_document: yup.string().required('Completar este campo'),
+  identity_document: yup.string()
+  .required('Completar este campo')
+  .matches(/^[0-9]+$/, 'Solo se aceptan dígitos'),
   type_document: yup.string().required('Completar este campo'),
   phone: yup.string()
   .required('Completar este campo')
