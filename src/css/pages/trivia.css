@@ -71,15 +71,25 @@
     text-align: center;
   }
 
+  .container-trivia > div:nth-child(2) > p:nth-child(4){
+    font-size: 1.3em;
+    text-align: center;
+  }
+
 .container-trivia > div:nth-child(3) {
   width: 100%;
   padding-top: 30px;
   margin-left: 10.5%; 
 }
 
-.timer {
+.timer-one {
   font-size: 1.2em;
-  color: rgba(255, 99, 71, 1);
+  color: #ffce00;
+}
+
+.timer-two {
+  font-size: 3em;
+  color: #ffce00;
 }
 
 .container-progress-bar {
@@ -109,7 +119,7 @@
   }
 
   .container-trivia > div:nth-child(2) > p:nth-child(1) {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
 
   .container-trivia > div:nth-child(3){
@@ -142,7 +152,7 @@
   }
 
   .container-trivia > div:nth-child(1) img {
-    width: 250px;
+    width: 200px;
   }
 
   .container-trivia > div:nth-child(2) > p:nth-child(2) {
@@ -151,6 +161,10 @@
 
   .container-trivia > div:nth-child(2) > p:nth-child(3) {
     font-size: 0.9em;
+  }
+
+  .timer-two {
+    font-size: 1.2em;
   }
 
 }

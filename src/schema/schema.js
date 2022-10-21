@@ -1,7 +1,9 @@
 import * as yup from "yup";
 
 export const RegisterSchema = yup.object().shape({
-  name: yup.string().required('Completar este campo'),
+  name: yup.string()
+  .required('Completar este campo')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\*\s]+$/,'El valor ingresado no es correcto'),
   email: yup.string()
   .required('Completar este campo')
   .matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 'El valor ingresado no es un correo'),
@@ -26,8 +28,8 @@ export const RegisterSchema = yup.object().shape({
   phone: yup.string()
   .required('Completar este campo')
   .matches(/^[0-9]+$/, 'Solo se aceptan dígitos')
-  .min(8, 'No puede tener menos de 8 dígitos')
-  .max(9, 'No puede tener más de 9 dígitos'),
+  .matches(/^[(2)(6)(7)(8)(9)].*$/, 'El número no puede iniciar con 0,1,3,4 y 5')
+  .length(8, 'Deben haber 8 dígitos'),
   is_suscriptor: yup.string().required('Completar este campo'),
   terms_conditions: yup.string().nullable().required('Completar este campo')
 })

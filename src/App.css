@@ -3,6 +3,11 @@
   src: url('./assets/font/Graphik Arabic SemiBold/Graphik_Arabic_SemiBold.ttf');
 }
 
+@font-face {
+  font-family: graphikArabicRegular;
+  src: url('./assets/font/Graphik Arabic Regular/graphikarabic-regular.otf');
+}
+
 body {
   font-family: graphikArabicSemibold;
   padding: 0 !important;

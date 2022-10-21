@@ -78,8 +78,9 @@ const Question = ({seconds, minutes}) => {
           </div>
           <div className="content-section">
             <p>Pona a prueba sus conocimientos del mundo del futbol</p>
-            <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer">15:00</span> minutos</p>
-            <p>Tiempo transcurrido: <span className="timer">{`${minutes}:${seconds}`}</span></p>
+            <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer-one">15:00</span> minutos</p>
+            <p>Tiempo transcurrido</p>
+            <p><span className="timer-two">{`${minutes}:${seconds <= 9 ? '0'+seconds:seconds}`}</span></p>
           </div>
           <div className="content-section">
             {question.text ? 
