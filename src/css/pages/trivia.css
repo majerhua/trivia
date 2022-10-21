@@ -27,7 +27,8 @@
   margin-left: 4%;
 }
 .alternatives-content > .alternative {
-  margin: 16px;
+  margin-left: 16px;
+  margin-top: 3px;
 }
 
 .alternative label {
@@ -58,7 +59,6 @@
 
 .container-trivia > div:nth-child(2) {
   width: 100%;
-  padding-top: 30px;
 }
 
   .container-trivia > div:nth-child(2) > p:nth-child(1) {
@@ -83,7 +83,6 @@
 
 .container-trivia > div:nth-child(3) {
   width: 100%;
-  padding-top: 30px;
   margin-left: 10.5%; 
 }
 
