@@ -43,10 +43,9 @@ const Question = ({seconds, minutes}) => {
 
   useEffect( () => {
     listQuestion();
-    setAlternativeNumber(null)
   }, [questionNumber]);
 
-  const { register, handleSubmit, formState:{ errors } } = useForm({
+  const { register, handleSubmit, reset ,formState:{ errors } } = useForm({
     mode: 'onChange',
     resolver: yupResolver(TriviaSchema),
     defaultValues: {
@@ -55,6 +54,7 @@ const Question = ({seconds, minutes}) => {
   });
   
   const onChangeValue = (event) => {
+    console.log("onChangeValue =>",parseInt(event.target.value));
     setAlternativeNumber(parseInt(event.target.value));
   }
 
@@ -69,7 +69,10 @@ const Question = ({seconds, minutes}) => {
     await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
 
     setQuestionNumber(questionNumber + 1);
-    setAlternativeNumber(1);
+    setAlternativeNumber(null);
+    reset({
+      alternativeNumber: null
+    })
   } 
 
   return (
@@ -78,7 +81,7 @@ const Question = ({seconds, minutes}) => {
             <img src={logoTrivia} alt="logo_trivia" />
           </div>
           <div className="content-section">
-            <p>Pona a prueba sus conocimientos del mundo del futbol</p>
+            <p>Ponga a prueba sus conocimientos del mundo del futbol</p>
             <p>Para completar la trivia usted debe responder 25 preguntas en <span className="timer-one">15:00</span> minutos</p>
             <p>Tiempo transcurrido</p>
             <p><span className="timer-two">{`${minutes}:${seconds <= 9 ? '0'+seconds:seconds}`}</span></p>

@@ -18,7 +18,7 @@ const Home = () => {
       <div className="container">
         <img src={logoTrivia} alt="logo_trivia" className="logo-trivia" />
         <div className="absolute-content">
-          <h3>Pona a prueba sus conocimientos <br/> del mundo del fútbol</h3>
+          <h3>Ponga a prueba sus conocimientos <br/> del mundo del fútbol</h3>
           <Button text="JUGAR" handleClick={handleClick} />
         </div>
           
