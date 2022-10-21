@@ -55,10 +55,10 @@
   height: 0;
   text-align: center;
   background: transparent;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 30px solid #fff;
-  margin-left: 15px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 18px solid #fff;
+  margin-left: 10px;
 }
 
 .container-id{

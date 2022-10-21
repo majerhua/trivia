@@ -20,3 +20,7 @@ p {
   margin-inline-start: 0;
   margin-inline-end: 0;
 }
+
+button {
+  font-size: 18px!important;
+}

@@ -36,6 +36,7 @@
 
 .form-section button {
   margin-left: 5%;
+  width: 120px!important;
 }
 
 .container-trivia > div:nth-child(1) {
