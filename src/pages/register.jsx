@@ -35,11 +35,12 @@ const Register = () => {
       type_document: "",
       phone: "",
       is_suscriptor: "",
-      terms_conditions: ""
+      terms_conditions: false
     }
   });
 
   const onSubmit = async (data) => {
+    console.log('registro => ', data)
     setLoader(true);
     try{
       const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-player',data);
@@ -71,7 +72,7 @@ const Register = () => {
             <div className="container-field">
               <div className="container-terms-conditions">
                 <div>
-                  <input type="radio" id="terms-conditions" value="1" {...register('terms_conditions')}errors={errors}/>
+                  <input type="checkbox" name="terms-conditions" id="terms-conditions"  {...register('terms_conditions')} errors={errors}/>
                   <label htmlFor="terms-conditions">Acepto términos y condiciones</label>
                 </div>
                 <p className="error text-center">{errors['terms_conditions']?.message}</p>
