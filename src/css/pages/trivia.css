@@ -16,23 +16,24 @@
 }
 
 .question > .number {
-  padding: 10px 20px;
+  padding: 7px 16.5px;
   border-radius: 100%;
-  font-size: 25px;
+  font-size: 20px;
   background-color: #660a1a;
   margin-right: 15px;
 }
 
 .alternatives-content {
-  margin-left: 4%;
+  margin-left: 35px;
 }
 .alternatives-content > .alternative {
   margin-left: 16px;
-  margin-top: 3px;
+  margin-top: 0;
 }
 
 .alternative label {
   font-family: graphikArabicRegular;
+  font-size: 0.9em;
 }
 
 .form-section button {
@@ -91,7 +92,7 @@
 }
 
 .timer-two {
-  font-size: 3em;
+  font-size: 2.3em;
   color: #ffce00;
 }
 
@@ -110,6 +111,15 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+  .alternatives-content {
+    margin-left: 0;
+  }
+
+  .alternatives-content > .alternative {
+    margin-left: 0;
+    margin-top: 3px;
+  }
 
   .question > .number {
     padding: 5px 10px;
@@ -170,4 +180,70 @@
     font-size: 1.2em;
   }
 
+}
+
+
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+ 
+.content-input input{
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.content-input{
+	position: relative;
+	padding:5px 0 5px 45px; /* Damos un padding de 60px para posicionar el elemento <i> en este espacio*/
+	display: block;
+}
+ 
+/* Estas reglas se aplicarán a todos las elementos i después de cualquier input*/
+.content-input input + i{
+ background: #f0f0f0;
+ border:2px solid rgba(0,0,0,0.2);
+ position: absolute; 
+ left: 0;
+ top: 0;
+}
+ 
+/* Estas reglas se aplicarán a todos los i despues de un input de tipo radio*/
+.content-input input[type=radio] + i{
+ height: 16px;
+ width: 16px;
+ border-radius: 100%;
+ left: 15px;
+ top: 5px;
+ border: 4px solid rgba(0,0,0,0.75);
+}
+
+.content-input input[type=radio] + i:before{
+	content: '';
+	display: block;
+	height: 13px;
+	width: 13px;
+	background: red;
+	border-radius: 100%;
+	position: absolute;
+	z-index: 1;
+	top: 1.2px;
+	left: 1.3px;
+	background:#ffce00;
+	transition: all 0.25s ease; /* Todas las propiedades | tiempo | tipo movimiento */
+	transform: scale(0) /* Lo reducimos a 0*/ ;
+	opacity: 0; /* Lo ocultamos*/
+}
+
+.content-input input[type=radio]:checked + i:before{
+	transform: scale(1);
+	opacity: 1;
+}
+
+
+.content-input:hover input[type=radio]:not(:checked) + i{
+	background: #B1E8CD;
 }

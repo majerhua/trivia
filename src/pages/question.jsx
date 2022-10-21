@@ -97,9 +97,11 @@ const Question = ({seconds, minutes}) => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div onChange={onChangeValue} className="alternatives-content">
                 {question.Alternatives ? question.Alternatives.map((alternative, index) => (
-                  <div key={index + 1} className="alternative"> 
-                    <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>
-                    <label>{alternative.text}</label>
+                  <div key={index + 1} className="alternative">
+                    <label className="content-input">
+                    <input checked={alternativeNumber===alternative.number} value={alternative.number} type="radio" name="alternativeNumber"  {...register('alternativeNumber')}/>{alternative.text}
+	                      <i></i>
+                      </label> 
                   </div>
                 )) : null}
                 </div>
