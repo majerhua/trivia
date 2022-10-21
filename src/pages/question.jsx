@@ -14,11 +14,11 @@ const Question = ({seconds, minutes}) => {
   const navigate = useNavigate();
   const { setPhase } = phaseStore();
   const { playerId } = playerIdStore();
-  const { setLoader } = loaderStore();
+  const { loader, setLoader } = loaderStore();
 
   const [question, setQuestion] = useState({});
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [alternativeNumber, setAlternativeNumber] = useState(1);
+  const [alternativeNumber, setAlternativeNumber] = useState(null);
 
   const listQuestion = async() => {
     const data = {
@@ -43,13 +43,14 @@ const Question = ({seconds, minutes}) => {
 
   useEffect( () => {
     listQuestion();
+    setAlternativeNumber(null)
   }, [questionNumber]);
 
   const { register, handleSubmit, formState:{ errors } } = useForm({
     mode: 'onChange',
     resolver: yupResolver(TriviaSchema),
     defaultValues: {
-      alternativeNumber: 0
+      alternativeNumber: null
     }
   });
   
@@ -58,7 +59,7 @@ const Question = ({seconds, minutes}) => {
   }
 
   const onSubmit = async (data) => {
-
+    console.log("Data =>",data);
     data = {...data, ...{
       playerId,
       questionId: question.id,

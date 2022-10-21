@@ -30,6 +30,10 @@
   margin: 16px;
 }
 
+.alternative label {
+  font-family: graphikArabicRegular;
+}
+
 .form-section button {
   margin-left: 5%;
 }
