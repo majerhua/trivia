@@ -40,7 +40,6 @@ const Register = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log('registro => ', data)
     setLoader(true);
     try{
       const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-player',data);
