@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { phaseStore } from '../store';
 import '../css/pages/general-ranking.css';
-import { DownloadTableExcel } from 'react-export-table-to-excel';
+import { downloadExcel  } from 'react-export-table-to-excel';
 import React, { useEffect, useState, useRef } from 'react';
 import logoTrivia from '../assets/imagenes/logo-trivia.svg';
 import axios from 'axios';
@@ -14,6 +14,7 @@ const GeneralRanking = () => {
 
   const listGeneralRanking = async() => {
     const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/general-ranking');
+    console.log(response.data.data);
     setGeneralRanking(response.data.data);
   }
 
@@ -21,6 +22,32 @@ const GeneralRanking = () => {
     listGeneralRanking();
   }, [setGeneralRanking]);
 
+  const header = [
+          'CODIGO PARTICIPANTE',
+          'TIPO DE DOCUMENTO',
+          'NUMERO DE DOCUMENTO',
+          'PARTICIPANTE',
+          'TELEFONO',
+          'EMAIL',
+          'SUSCRIPTOR',
+          'FECHA DE PARTICIPACION',
+          'TIEMPO DE JUEGO',
+          'RESPUESTAS CORRECTAS',
+          'PROMEDIO',
+        ];
+
+
+  const handleDownloadExcel = ()=>{
+    console.log(generalRanking);
+    downloadExcel({
+      fileName: "jugadores",
+      sheet: "jugadores",
+      tablePayload: {
+        header,
+        body: generalRanking
+      },
+    });
+  }
 
   return (
       <div className="container-general-ranking">
@@ -29,14 +56,8 @@ const GeneralRanking = () => {
         </div>
         <p className="general-ranking-title">Clasificación General</p>
         <div className="container-btn-export-excel">
-            <DownloadTableExcel
-                        filename="jugadores de la trivia"
-                        sheet="jugadores"
-                        currentTableRef={tableRef.current}
-                    >
-                      <button>Exportar excel</button>
-            </DownloadTableExcel>
-          </div>
+          <button onClick={handleDownloadExcel}>Exportar excel</button>
+        </div>
         <div className="container-table-ranking container-table-ranking-export">
           <table ref={tableRef}>
             <thead>
@@ -55,7 +76,7 @@ const GeneralRanking = () => {
             <tbody>
               {generalRanking.map((player, index) => (
                 <tr key={index}>
-                  <td><div className="container-id">{player.id}</div></td>
+                  <td><div className="container-id">{index + 1}</div></td>
                   <td>{player.name}</td>
                   <td>{player.documentType}</td>
                   <td>{player.documentNumber}</td>

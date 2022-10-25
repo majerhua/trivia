@@ -54,12 +54,10 @@ const Question = ({seconds, minutes}) => {
   });
   
   const onChangeValue = (event) => {
-    console.log("onChangeValue =>",parseInt(event.target.value));
     setAlternativeNumber(parseInt(event.target.value));
   }
 
   const onSubmit = async (data) => {
-    console.log("Data =>",data);
     data = {...data, ...{
       playerId,
       questionId: question.id,

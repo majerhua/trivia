@@ -22,7 +22,7 @@ const Select = ({label, name, register, errors}) => {
 
   return (
     <div className="container-field">
-      <p>{label}</p>
+      <p className="mt-1">{label}</p>
       <div>
         <select {...register(name)} errors={errors}>
           <option value="">--Seleccionar--</option>

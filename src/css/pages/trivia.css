@@ -3,11 +3,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  width: 100%;
+  width: calc(100% - 10px);
+  padding: 0 5px;
   background-position: center;
   color: #fff;
   overflow: hidden;
 }
+
 
 .question {
   display: flex;
@@ -83,8 +85,9 @@
   }
 
 .container-trivia > div:nth-child(3) {
-  width: 100%;
-  margin-left: 10.5%; 
+  width: calc(100% - 10.5% - 10px);
+  padding-left: 10.5%;
+  padding-right: 10px;
 }
 
 .timer-one {
@@ -125,11 +128,6 @@
   .question > .number {
     padding: 5px 10px;
     font-size: 1em;
-  }
-
-  .container-trivia {
-    padding: 0 5px;
-    width: calc(100% - 10px);
   }
 
   .container-trivia > div:nth-child(2) > p:nth-child(1) {

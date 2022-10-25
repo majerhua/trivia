@@ -46,8 +46,8 @@ const GeneralRanking = () => {
             </thead>
             <tbody>
               {generalRanking.map((player, index) => (
-                <tr key={index}>
-                  <td><div className="container-id">{player.id}</div></td>
+                <tr key={index + 1}>
+                  <td><div className="container-id">{index + 1}</div></td>
                   <td>{player.name}</td>
                   <td>{player.numberCorrectAnswers}</td>
                   <td>{player.timeTakesRespond}</td>

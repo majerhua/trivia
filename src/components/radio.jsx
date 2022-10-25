@@ -9,7 +9,7 @@ const Radio = ({label, name, register, errors}) => {
   }
 
   return (
-    <div className="container-field" onChange={onChangeValue}>
+    <div className="container-field mt-0" onChange={onChangeValue}>
       <p>{label}</p>
       <div>
         <div className="container-radio">
