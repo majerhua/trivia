@@ -29,3 +29,13 @@ export const loaderStore = create(
         }),
     })
 );
+
+export const userStore = create(
+    (set) => ({
+        user: null,
+        setUser: (user) =>
+            set(() => {
+                return { user };
+        }),
+    })
+);

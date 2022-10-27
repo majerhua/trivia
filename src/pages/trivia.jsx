@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { phaseStore, loaderStore, playerIdStore } from '../store';
+import { phaseStore, playerIdStore } from '../store';
 import '../css/pages/trivia.css';
 import { useCountdown } from '../hooks/useCountdown';
 import Question from './question';
@@ -8,7 +8,7 @@ import Question from './question';
 const Trivia = () => {
 
   const navigate = useNavigate();
-  const { phase, setPhase } = phaseStore();
+  const { phase } = phaseStore();
   const { playerId } = playerIdStore();
 
   let [minutes, seconds] = useCountdown();

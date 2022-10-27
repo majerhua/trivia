@@ -5,6 +5,7 @@ import Button from '../components/button';
 import React, { useEffect, useState } from 'react';
 import logoTrivia from '../assets/imagenes/logo-trivia.svg';
 import axios from 'axios';
+import { BASE_URL } from '../config/api';
 
 const GeneralRanking = () => {
 
@@ -14,7 +15,7 @@ const GeneralRanking = () => {
   const [generalRanking, setGeneralRanking] = useState([]);
 
   const listGeneralRanking = async() => {
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/general-ranking');
+    const response = await axios.post(`${BASE_URL}/general-ranking`);
     setGeneralRanking(response.data.data);
   }
 

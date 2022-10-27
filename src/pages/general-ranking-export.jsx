@@ -5,6 +5,7 @@ import { downloadExcel  } from 'react-export-table-to-excel';
 import React, { useEffect, useState, useRef } from 'react';
 import logoTrivia from '../assets/imagenes/logo-trivia.svg';
 import axios from 'axios';
+import { BASE_URL } from '../config/api';
 
 const GeneralRanking = () => {
 
@@ -13,7 +14,7 @@ const GeneralRanking = () => {
 
 
   const listGeneralRanking = async() => {
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/general-ranking');
+    const response = await axios.post(`${BASE_URL}/general-ranking`);
     console.log(response.data.data);
     setGeneralRanking(response.data.data);
   }

@@ -9,12 +9,16 @@
   width: 230px;
 }
 
-.container-field input[type="text"] {
+.container-field input[type="text"], input[type="password"], textarea {
   margin-top: 10px;
   height: 25px;
   border-radius: 4px;
   width: 300px;
   border: 1px solid #7c7c7c;
+}
+
+.container-field textarea {
+  height: 60px;
 }
 
 .container-field select {

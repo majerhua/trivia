@@ -3,18 +3,18 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TriviaSchema } from '../schema/schema';
 import { useNavigate } from "react-router-dom";
-import { phaseStore, playerIdStore, loaderStore } from '../store';
+import { playerIdStore, loaderStore } from '../store';
 import axios from 'axios';
 import '../css/pages/trivia.css';
 import logoTrivia from '../assets/imagenes/logo-trivia.svg';
 import Progressbar from '../components/progress-bar';
+import { BASE_URL } from '../config/api';
 
 const Question = ({seconds, minutes}) => {
 
   const navigate = useNavigate();
-  const { setPhase } = phaseStore();
   const { playerId } = playerIdStore();
-  const { loader, setLoader } = loaderStore();
+  const { setLoader } = loaderStore();
 
   const [question, setQuestion] = useState({});
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -26,7 +26,7 @@ const Question = ({seconds, minutes}) => {
       questionNumber
     }
 
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/list-question',data);
+    const response = await axios.post(`${BASE_URL}/list-question`,data);
 
     if(response.data.code === 1) {
       setQuestion(response.data.data);
@@ -64,7 +64,7 @@ const Question = ({seconds, minutes}) => {
       questionNumber
     }};
     setLoader(true);
-    await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-question',data);
+    await axios.post(`${BASE_URL}/register-question`,data);
 
     setQuestionNumber(questionNumber + 1);
     setAlternativeNumber(null);

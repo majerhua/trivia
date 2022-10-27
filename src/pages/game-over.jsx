@@ -4,6 +4,7 @@ import { phaseStore, loaderStore } from '../store';
 import '../css/pages/game-over.css';
 import gameOver from '../assets/imagenes/game-over.svg';
 import axios from 'axios';
+import { BASE_URL } from '../config/api';
 
 const GameOver = () => {
   const { setPhase } = phaseStore();
@@ -30,7 +31,7 @@ const GameOver = () => {
       playerId,
       timeTakesRespond: `00:${timeTakesRespond}`
     }
-    await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/record-question-time',data);
+    await axios.post(`${BASE_URL}/record-question-time`,data);
     getTimeAndCorrectQuestions(playerId);
   }
 
@@ -38,7 +39,7 @@ const GameOver = () => {
     const data = {
       playerId
     }
-    const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/player-ranking',data);
+    const response = await axios.post(`${BASE_URL}/player-ranking`,data);
 
     if(response.data.code === 1) {
       if(response.data.data.length > 0){

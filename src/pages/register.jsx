@@ -6,11 +6,12 @@ import Select from '../components/select';
 import Radio from '../components/radio';
 import Button from '../components/button';
 import { phaseStore, playerIdStore, loaderStore } from '../store';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../css/pages/register.css';
 import logoTriviaRed from '../assets/imagenes/trivia-qatar-rojo.svg';
+import { BASE_URL } from '../config/api';
 
 const Register = () => {
 
@@ -42,10 +43,14 @@ const Register = () => {
   const onSubmit = async (data) => {
     setLoader(true);
     try{
-      const response = await axios.post('https://jsdz6bisv3.execute-api.us-east-1.amazonaws.com/dev/v1/api/register-player',data);
-      setPlayerId(response.data.data.id);
-      setPhase(2);
-      navigate("/trivia");
+      const response = await axios.post(`${BASE_URL}/register-player`,data);
+      if(response.data.code === 1) {
+        setPlayerId(response.data.data.id);
+        setPhase(2);
+        navigate("/trivia");
+      }else{ 
+        alert('No es posible continuar con el juego porque no hay un juego creado, comuniquese con el diario La Nación por favor.')
+      }
     }catch(ex){
       alert(ex.message);
       setLoader(false);

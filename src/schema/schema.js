@@ -34,6 +34,21 @@ export const RegisterSchema = yup.object().shape({
   terms_conditions: yup.bool().oneOf([true], 'Completar este campo'),
 })
 
+
+export const LoginSchema = yup.object().shape({
+  username: yup.string()
+  .required('Completar este campo')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\*\s]+$/,'El valor ingresado no es correcto'),
+  password: yup.string()
+  .required('Completar este campo')
+})
+
+export const ResetTriviaSchema = yup.object().shape({
+  description: yup.string()
+  .required('Completar este campo')
+  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\*\s]+$/,'El valor ingresado no es correcto')
+})
+
 export const TriviaSchema = yup.object().shape({
   alternativeNumber: yup.number().required('Debe escoger una opción para continuar con la trivia')
 })
