@@ -77,7 +77,7 @@ const Register = () => {
               <div className="container-terms-conditions">
                 <div>
                   <input type="checkbox" name="terms-conditions" id="terms-conditions"  {...register('terms_conditions')} errors={errors}/>
-                  <label htmlFor="terms-conditions">Acepto términos y condiciones</label>
+                  <label htmlFor="terms-conditions"><a className='link-terms-conditions' rel="noreferrer" target='_blank' href='https://www.nacion.com/gnfactory/comercial/2022/reglamentotrivia2022qatar/reglamento.pdf'>Acepto términos y condiciones</a></label>
                 </div>
                 <p className="error text-center">{errors['terms_conditions']?.message}</p>
               </div>

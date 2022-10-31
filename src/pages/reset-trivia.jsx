@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '../components/button';
+import { useNavigate } from "react-router-dom";
 import { ResetTriviaSchema } from '../schema/schema';
 import '../css/pages/login.css';
 import logoTrivia from '../assets/imagenes/logo-trivia.svg';
@@ -10,9 +11,10 @@ import { BASE_URL } from '../config/api';
 
 const ResetTrivia = () => {
 
+  const navigate = useNavigate();
   const { setLoader } = loaderStore();
 
-  const { register, handleSubmit, formState:{ errors } } = useForm({
+  const { register, handleSubmit, reset, formState:{ errors } } = useForm({
     mode: 'onChange',
     resolver: yupResolver(ResetTriviaSchema),
     defaultValues: {
@@ -23,8 +25,15 @@ const ResetTrivia = () => {
   const onSubmit = async (data) => {
     setLoader(true);
     try{
-      await axios.post(`${BASE_URL}/reset-game`,data);
-        alert('El ranking de la trivia ha sido limpiado');
+      const confirm = window.confirm("¿Está seguro de limpiar el ranking de la trivia?");
+        if(confirm) {
+          await axios.post(`${BASE_URL}/reset-game`,data);
+          alert('El ranking de la trivia ha sido limpiado');
+          reset({
+            description: ""
+          })
+          navigate('/ranking-general-export');
+        }
     }catch(ex){
       alert(ex.message);
     }

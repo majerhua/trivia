@@ -46,7 +46,6 @@ export const LoginSchema = yup.object().shape({
 export const ResetTriviaSchema = yup.object().shape({
   description: yup.string()
   .required('Completar este campo')
-  .matches(/^[a-zA-ZÀ-ÿ\u00f1\u00d1\*\s]+$/,'El valor ingresado no es correcto')
 })
 
 export const TriviaSchema = yup.object().shape({

@@ -60,3 +60,12 @@
 .text-center {
   text-align: center;
 }
+
+.link-terms-conditions {
+  text-decoration: none;
+  color: #000;
+}
+
+.link-terms-conditions:hover {
+  text-decoration: underline;
+}
